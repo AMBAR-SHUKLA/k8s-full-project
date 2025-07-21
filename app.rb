@@ -1,12 +1,13 @@
 require 'sinatra'
 
-# Bind to all interfaces and set port
+# Allow external access
 set :bind, '0.0.0.0'
 set :port, 4567
 
-# ✅ Fix Rack::Protection::HostAuthorization issue
+# ✅ Disable Rack::Protection::HostAuthorization completely
 set :protection, except: :host_authorization
 
 get '/' do
   'Hello Ambar Shukla'
 end
+
