@@ -1,10 +1,11 @@
 require 'sinatra'
 
+# Bind to all interfaces and set port
 set :bind, '0.0.0.0'
 set :port, 4567
 
-# Allow Render domain access
-set :allowed_hosts, ['k8s-full-project.onrender.com']
+# ✅ Fix Rack::Protection::HostAuthorization issue
+set :protection, except: :host_authorization
 
 get '/' do
   'Hello Ambar Shukla'
